@@ -1,0 +1,180 @@
+.pageWrap {
+  background-color: var(--color-surface-base);
+  background-image: url('/assets/images/dariusz-sankowski-3OiYMgDKJ6k-unsplash-scaled.jpg');
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+  min-height: 100vh;
+  padding-top: var(--header-height);
+  padding-bottom: var(--space-8);
+}
+
+.pageWrap::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.93);
+  pointer-events: none;
+}
+
+.headerSection {
+  position: relative;
+  z-index: 2;
+  padding: var(--space-6) 0 var(--space-4);
+  text-align: center;
+}
+
+.residenceSection,
+.campingSection {
+  position: relative;
+  z-index: 2;
+  padding: var(--space-5) 0 var(--space-7);
+}
+
+.residenceCard {
+  background: rgba(12, 12, 12, 0.85);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9);
+}
+
+.residenceHeader {
+  text-align: center;
+  margin-bottom: var(--space-5);
+}
+
+.residenceBadge {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: var(--color-gold);
+  text-transform: uppercase;
+  margin-bottom: var(--space-2);
+}
+
+.residenceTitle {
+  font-family: var(--font-heading);
+  font-size: 26px;
+  font-weight: 300;
+  letter-spacing: 2px;
+  color: #ffffff;
+  margin-bottom: var(--space-3);
+}
+
+.residenceDesc {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #cccccc;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.residenceGallery,
+.campingGallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.campingGallery {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.residenceImgWrap {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+  background: #000000;
+}
+
+.residenceImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--motion-normal);
+}
+
+.residenceImgWrap:hover .residenceImg {
+  transform: scale(1.05);
+}
+
+.imgCaption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.85) 100%);
+  padding: 8px 12px;
+  font-size: 12px;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+}
+
+.residenceCta {
+  text-align: center;
+}
+
+/* Hotels Section */
+.hotelsSection {
+  position: relative;
+  z-index: 2;
+  padding: var(--space-5) 0 var(--space-7);
+}
+
+.categoryDivider {
+  text-align: center;
+  margin-bottom: var(--space-6);
+}
+
+.categoryHeading {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 300;
+  letter-spacing: 2px;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.goldLine {
+  width: 50px;
+  height: 2px;
+  background-color: var(--color-gold);
+  margin: var(--space-2) auto 0;
+}
+
+.hotelsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+}
+
+@media (max-width: 1024px) {
+  .hotelsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .campingGallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .hotelsGrid {
+    grid-template-columns: 1fr;
+  }
+  .residenceGallery,
+  .campingGallery {
+    grid-template-columns: 1fr;
+  }
+  .residenceCard {
+    padding: var(--space-4);
+  }
+}

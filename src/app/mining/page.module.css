@@ -1,0 +1,521 @@
+.miningPageWrapper {
+  background-color: #020202;
+  color: var(--color-text-primary);
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Subnav */
+.subnav {
+  position: sticky;
+  top: 75px;
+  z-index: 900;
+  background: rgba(8, 8, 8, 0.94);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+  padding: 10px 0;
+}
+
+.subnavContainer {
+  max-width: var(--max-width-container);
+  margin: 0 auto;
+  padding: 0 var(--space-5);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.miningBrand {
+  display: flex;
+  align-items: center;
+}
+
+.miningLogo {
+  height: 38px;
+  width: auto;
+  object-fit: contain;
+}
+
+.subnavList {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  list-style: none;
+  overflow-x: auto;
+}
+
+.subnavLink {
+  font-family: var(--font-heading);
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #c0c0c0;
+  padding: 6px 10px;
+  transition: all var(--motion-fast);
+  white-space: nowrap;
+}
+
+.subnavLink:hover {
+  color: var(--color-gold);
+}
+
+/* Mining Hero */
+.miningHero {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 120px var(--space-5) 60px;
+  background-color: #000000;
+  overflow: hidden;
+}
+
+.heroVideoContainer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.heroVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.88) 80%, #020202 100%);
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.miningLogoBigWrap {
+  margin-bottom: var(--space-4);
+}
+
+.miningLogoBig {
+  height: 100px;
+  width: auto;
+  margin: 0 auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.9));
+}
+
+.miningHeroTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 300;
+  letter-spacing: 4px;
+  color: #ffffff;
+  margin-bottom: var(--space-3);
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9);
+}
+
+.miningHeroSubtitle {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #d8d8d8;
+  max-width: 650px;
+  margin: 0 auto var(--space-6);
+}
+
+.heroActions {
+  display: flex;
+  gap: var(--space-4);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Sections */
+.section {
+  padding: var(--space-7) 0 var(--space-8);
+  position: relative;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Maps Grid */
+.mapsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+}
+
+.mapCard {
+  background: rgba(15, 15, 15, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  cursor: pointer;
+  transition: all var(--motion-normal);
+}
+
+.mapCard:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-gold);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9), 0 0 20px var(--color-gold-glow);
+}
+
+.mapImgWrap {
+  position: relative;
+  aspect-ratio: 16 / 11;
+  background: #000000;
+  overflow: hidden;
+}
+
+.mapImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.mapCard:hover .mapImg {
+  transform: scale(1.05);
+}
+
+.enlargeBadge {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: var(--radius-xs);
+  backdrop-filter: blur(4px);
+}
+
+.mapInfo {
+  padding: var(--space-4);
+}
+
+.mapTitle {
+  font-family: var(--font-heading);
+  font-size: 17px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.mapDesc {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #aaaaaa;
+}
+
+/* Equipment Grid */
+.equipmentGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6);
+}
+
+.equipmentCard {
+  background: rgba(12, 12, 12, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--motion-normal);
+}
+
+.equipmentCard:hover {
+  border-color: var(--color-gold);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9), 0 0 25px var(--color-gold-glow);
+  transform: translateY(-4px);
+}
+
+.equipmentMediaWrap {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background-color: #050505;
+  overflow: hidden;
+}
+
+.equipmentImg,
+.equipmentVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 10px;
+}
+
+.equipmentBadge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-family: var(--font-heading);
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  color: #000000;
+  background: var(--color-gold);
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: var(--radius-xs);
+}
+
+.equipmentBody {
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.equipmentName {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  color: #ffffff;
+  margin-bottom: var(--space-3);
+}
+
+.equipmentDesc {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #cccccc;
+}
+
+/* Team Grid */
+.teamGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+}
+
+.teamCard {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: all var(--motion-normal);
+}
+
+.teamCard:hover {
+  transform: translateY(-6px);
+  border-color: var(--color-gold);
+  box-shadow: 0 0 25px var(--color-gold-glow);
+}
+
+.teamImgWrap {
+  height: 250px;
+  background: #0d0d0d;
+  overflow: hidden;
+}
+
+.teamImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  filter: grayscale(100%) contrast(1.15) brightness(0.8);
+  transition: filter 0.3s;
+}
+
+.teamCard:hover .teamImg {
+  filter: grayscale(40%) contrast(1.1) brightness(0.95);
+}
+
+.teamContent {
+  padding: var(--space-5);
+}
+
+.teamRole {
+  font-family: var(--font-heading);
+  font-size: 19px;
+  letter-spacing: 1.5px;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.teamDesc {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #bbbbbb;
+}
+
+/* Methodology Grid */
+.methodGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-5);
+}
+
+.methodCard {
+  position: relative;
+  background: rgba(10, 10, 10, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+  overflow: hidden;
+  transition: all var(--motion-normal);
+}
+
+.methodCard::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('/assets/images/Moon-Rabbit-Mining-Map-1.png');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.12;
+  filter: grayscale(100%) contrast(1.2);
+  transform: scale(1.05);
+}
+
+.methodCard:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-gold);
+  box-shadow: 0 0 25px var(--color-gold-glow);
+}
+
+.methodContent {
+  position: relative;
+  z-index: 2;
+}
+
+.stepBadge {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: var(--color-gold);
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: var(--space-3);
+  text-transform: uppercase;
+}
+
+.stepTitle {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.stepDesc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #cccccc;
+}
+
+/* Investment Grid */
+.investGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+}
+
+.investCard {
+  position: relative;
+  background: rgba(10, 10, 10, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  transition: all var(--motion-normal);
+  overflow: hidden;
+}
+
+.investCard:hover {
+  border-color: var(--color-gold);
+  box-shadow: 0 0 25px var(--color-gold-glow);
+  transform: translateY(-5px);
+}
+
+.investContent {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.tierBadge {
+  font-family: var(--font-heading);
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: var(--color-gold);
+  text-transform: uppercase;
+  margin-bottom: var(--space-2);
+}
+
+.tierTitle {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  color: #ffffff;
+  margin-bottom: var(--space-3);
+}
+
+.tierDesc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #cccccc;
+  margin-bottom: var(--space-5);
+  flex: 1;
+}
+
+.tierAction {
+  margin-top: auto;
+}
+
+/* Quote Section */
+.quoteSection {
+  padding: var(--space-7) 0;
+  text-align: center;
+  background-color: #030303;
+}
+
+.quoteBannerWrap {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.quoteBannerImg {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.9));
+}
+
+@media (max-width: 1024px) {
+  .mapsGrid,
+  .teamGrid,
+  .investGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .mapsGrid,
+  .equipmentGrid,
+  .teamGrid,
+  .methodGrid,
+  .investGrid {
+    grid-template-columns: 1fr;
+  }
+  .subnav {
+    display: none;
+  }
+}

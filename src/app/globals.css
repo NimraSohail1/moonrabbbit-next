@@ -1,0 +1,1147 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Oswald:wght@200;300;400;500;600&family=Roboto:wght@300;400;500;700&display=swap");
+
+@import "tailwindcss";
+
+
+/* =====================================================
+   THEME
+===================================================== */
+
+@theme {
+  --color-gold: #D4AF37;
+  --color-gold-light: #F3E5AB;
+  --color-gold-dark: #AA7C11;
+  --color-gold-accent: #FFD700;
+
+  --color-brand-black: #000000;
+  --color-brand-dark: #0a0a0a;
+  --color-brand-card: #121212;
+  --color-brand-card-hover: #181818;
+
+  --font-oswald: "Oswald", sans-serif;
+  --font-roboto: "Roboto", sans-serif;
+  --font-cinzel: "Cinzel", serif;
+}
+
+:root {
+  --color-gold: #D4AF37;
+  --color-gold-light: #F3E5AB;
+  --color-gold-dark: #AA7C11;
+  --color-gold-accent: #FFD700;
+
+  --color-brand-black: #000000;
+  --color-brand-dark: #0a0a0a;
+  --color-brand-card: #121212;
+  --color-brand-card-hover: #181818;
+
+  --font-oswald: "Oswald", sans-serif;
+  --font-roboto: "Roboto", sans-serif;
+  --font-cinzel: "Cinzel", serif;
+}
+
+
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+html {
+  scroll-behavior: smooth;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000000;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* =====================================================
+   3D FLIPBOOK STYLES & PERSPECTIVE
+===================================================== */
+.book-stage-container {
+  perspective: 2600px;
+  -webkit-perspective: 2600px;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+}
+
+.book-perspective {
+  perspective: 2500px;
+  -webkit-perspective: 2500px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+}
+
+@keyframes flipPageNextRealistic {
+  0% {
+    transform: rotateY(0deg);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  }
+  35% {
+    transform: rotateY(-60deg) skewY(-2deg) scale(1.02);
+    box-shadow: -15px 20px 45px rgba(0, 0, 0, 0.7);
+  }
+  65% {
+    transform: rotateY(-120deg) skewY(2deg) scale(1.02);
+    box-shadow: -15px 20px 45px rgba(0, 0, 0, 0.7);
+  }
+  100% {
+    transform: rotateY(-180deg);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  }
+}
+
+@keyframes flipPagePrevRealistic {
+  0% {
+    transform: rotateY(0deg);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  }
+  35% {
+    transform: rotateY(60deg) skewY(2deg) scale(1.02);
+    box-shadow: 15px 20px 45px rgba(0, 0, 0, 0.7);
+  }
+  65% {
+    transform: rotateY(120deg) skewY(-2deg) scale(1.02);
+    box-shadow: 15px 20px 45px rgba(0, 0, 0, 0.7);
+  }
+  100% {
+    transform: rotateY(180deg);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  }
+}
+
+@keyframes leafLightingNext {
+  0% { opacity: 0; }
+  45% { opacity: 0.75; }
+  100% { opacity: 0; }
+}
+
+@keyframes leafLightingPrev {
+  0% { opacity: 0; }
+  45% { opacity: 0.75; }
+  100% { opacity: 0; }
+}
+
+@keyframes baseShadowNext {
+  0% { opacity: 0.8; }
+  50% { opacity: 0.4; }
+  100% { opacity: 0; }
+}
+
+@keyframes baseShadowPrev {
+  0% { opacity: 0.8; }
+  50% { opacity: 0.4; }
+  100% { opacity: 0; }
+}
+
+.animate-flip-next-realistic {
+  animation: flipPageNextRealistic 0.7s cubic-bezier(0.25, 1, 0.3, 1) forwards;
+  transform-origin: left center;
+  will-change: transform, box-shadow;
+}
+
+.animate-flip-prev-realistic {
+  animation: flipPagePrevRealistic 0.7s cubic-bezier(0.25, 1, 0.3, 1) forwards;
+  transform-origin: right center;
+  will-change: transform, box-shadow;
+}
+
+.animate-leaf-lighting-next {
+  animation: leafLightingNext 0.7s ease-in-out forwards;
+}
+
+.animate-leaf-lighting-prev {
+  animation: leafLightingPrev 0.7s ease-in-out forwards;
+}
+
+.animate-base-shadow-next {
+  animation: baseShadowNext 0.7s ease-out forwards;
+}
+
+.animate-base-shadow-prev {
+  animation: baseShadowPrev 0.7s ease-out forwards;
+}
+
+/* =====================================================
+   OFFICIAL 3D FLIPBOOK LOADER (Exact Plugin Match)
+===================================================== */
+@keyframes fb3d-loader {
+  0% { transform: scale(1.2) }
+  100% { transform: scale(1) }
+}
+
+.fb3d-loading-progress {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+}
+
+.fb3d-loading-progress .fb3d-progress-circle {
+  background-color: #ffffff;
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 10px auto;
+  border-radius: 26px;
+  padding: 5px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fb3d-loader-box {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  transform-origin: center;
+  overflow: hidden;
+  background: transparent;
+  transform: scale(0.7);
+}
+
+.fb3d-loader-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform: translateZ(0) scale(0.5);
+  backface-visibility: hidden;
+  transform-origin: 0 0;
+}
+
+.fb3d-loader-inner div {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  top: 10px;
+  left: 10px;
+  background: #353535;
+  animation: fb3d-loader 1s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+  animation-delay: -0.3s;
+  box-sizing: content-box;
+}
+
+.fb3d-loader-inner div:nth-child(2) {
+  top: 10px;
+  left: 55px;
+  background: #666666;
+  animation-delay: -0.2s;
+}
+
+.fb3d-loader-inner div:nth-child(3) {
+  top: 55px;
+  left: 10px;
+  background: #9b9b9b;
+  animation-delay: 0s;
+}
+
+.fb3d-loader-inner div:nth-child(4) {
+  top: 55px;
+  left: 55px;
+  background: #d4d4d4;
+  animation-delay: -0.1s;
+}
+
+.fb3d-loading-progress .fb3d-caption {
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-style: italic;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  color: #333333;
+  text-align: center;
+  white-space: nowrap;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+
+
+
+
+
+
+/* =====================================================
+   CARD STYLES
+===================================================== */
+
+.zone-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 15px;
+  overflow: hidden;
+
+  transition:
+    all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.zone-card:hover {
+  transform: translateY(-6px);
+  border-color: #D4AF37;
+
+  box-shadow:
+    0 0 30px rgba(212, 175, 55, 0.18);
+}
+
+
+.team-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 15px;
+  overflow: hidden;
+
+  transition:
+    all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.team-card:hover {
+  transform: translateY(-6px);
+  border-color: #D4AF37;
+
+  box-shadow:
+    0 0 30px rgba(212, 175, 55, 0.18);
+}
+
+
+.team-img {
+  width: 100%;
+  height: 250px;
+
+  object-fit: cover;
+  object-position: center;
+
+  display: block;
+
+  filter:
+    grayscale(100%) contrast(1.15) brightness(0.85);
+
+  transition: filter 0.3s ease;
+}
+
+.team-card:hover .team-img {
+  filter:
+    grayscale(20%) contrast(1.1) brightness(1);
+}
+
+
+/* =====================================================
+   ANIMATIONS
+===================================================== */
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes pulseSubtle {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.85;
+    transform: scale(1.02);
+  }
+}
+
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+
+.animate-fade-in {
+  animation:
+    fadeIn 0.8s ease-in-out forwards;
+}
+
+
+.animate-pulse-subtle {
+  animation:
+    pulseSubtle 3s infinite ease-in-out;
+}
+
+
+.animate-float {
+  animation:
+    float 6s ease-in-out infinite;
+}
+
+
+/* =====================================================
+   OUR THEME / VIDEO SECTION
+===================================================== */
+
+.video-section {
+  width: 100%;
+  background: #000000;
+
+  padding: 55px 0 70px;
+
+  overflow: hidden;
+}
+
+
+/* =====================================================
+   VIDEO HEADING
+===================================================== */
+
+.video-heading {
+  width: 100%;
+
+  text-align: center;
+
+  margin-bottom: 42px;
+
+  padding: 0 20px;
+}
+
+.video-heading h2 {
+  margin: 0;
+
+  color: #f5f5f5;
+
+  font-family: "Oswald", sans-serif;
+
+  font-size: 58px;
+
+  font-weight: 300;
+
+  line-height: 1.15;
+
+  letter-spacing: 0.01em;
+
+  text-transform: none;
+}
+
+
+/* =====================================================
+   VIDEO CONTAINER
+===================================================== */
+
+.video-container {
+  width: 950px;
+  max-width: calc(100% - 80px);
+
+  margin: 0 auto;
+
+  background: #000000;
+
+  border-radius: 16px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.04);
+
+  position: relative;
+}
+
+
+/* =====================================================
+   THEME VIDEO
+===================================================== */
+
+.theme-video {
+  width: 100%;
+
+  height: 535px;
+
+  display: block;
+
+  object-fit: cover;
+
+  background: #000000;
+
+  border: none;
+
+  outline: none;
+}
+
+
+
+/* =====================================================
+   VIDEO HOVER
+===================================================== */
+
+.video-container:hover {
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.07);
+}
+
+
+/* =====================================================
+   MAJESTIC MOUNTAINS SECTION
+===================================================== */
+
+.mountain-section {
+  width: 100%;
+
+  background: #000000;
+
+  padding: 55px 0 70px;
+
+  overflow: hidden;
+}
+
+
+/* =====================================================
+   HEADING
+===================================================== */
+
+.mountain-heading {
+  width: 100%;
+
+  text-align: center;
+
+  margin-bottom: 55px;
+
+  padding: 0 20px;
+}
+
+
+.mountain-heading h2 {
+  margin: 0;
+
+  color: #f5f5f5;
+
+  font-family: "Oswald", sans-serif;
+
+  font-size: 58px;
+
+  font-weight: 300;
+
+  line-height: 1.15;
+
+  letter-spacing: 0.01em;
+
+  text-transform: none;
+}
+
+
+/* =====================================================
+   SLIDER WRAPPER
+===================================================== */
+
+.mountain-slider-wrapper {
+  position: relative;
+
+  width: 100%;
+
+  padding: 0 50px;
+}
+
+
+/* =====================================================
+   SLIDER
+===================================================== */
+
+.mountain-slider {
+  display: flex;
+
+  gap: 38px;
+
+  width: 100%;
+
+  overflow-x: auto;
+
+  scroll-behavior: smooth;
+
+  scrollbar-width: none;
+
+  -ms-overflow-style: none;
+}
+
+.mountain-slider::-webkit-scrollbar {
+  display: none;
+}
+
+
+/* =====================================================
+   MOUNTAIN CARD
+===================================================== */
+
+.mountain-card {
+  position: relative;
+
+  flex: 0 0 calc((100% - 114px) / 4);
+
+  height: 440px;
+
+  overflow: hidden;
+
+  border-radius: 6px;
+
+  background: #111111;
+
+  cursor: pointer;
+}
+
+
+/* =====================================================
+   MOUNTAIN IMAGE
+===================================================== */
+
+.mountain-card img {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  object-position: center;
+
+  display: block;
+
+  transform: scale(1);
+
+  transition:
+    transform 0.6s ease,
+    filter 0.4s ease;
+}
+
+
+/* =====================================================
+   IMAGE HOVER
+===================================================== */
+
+.mountain-card:hover img {
+  transform: scale(1.04);
+
+  filter: brightness(0.45);
+}
+
+
+/* =====================================================
+   DARK OVERLAY
+===================================================== */
+
+.mountain-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 1;
+
+  background: rgba(0, 0, 0, 0);
+
+  transition:
+    background 0.4s ease;
+
+  pointer-events: none;
+}
+
+
+/* =====================================================
+   OVERLAY ON HOVER
+===================================================== */
+
+.mountain-card:hover .mountain-overlay {
+  background: rgba(0, 0, 0, 0.35);
+}
+
+
+/* =====================================================
+   HOVER CONTENT
+===================================================== */
+
+.mountain-hover-content {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 2;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 35px;
+
+  text-align: center;
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  transform: translateY(20px);
+
+  transition:
+    opacity 0.4s ease,
+    visibility 0.4s ease,
+    transform 0.4s ease;
+
+  pointer-events: none;
+}
+
+
+/* =====================================================
+   SHOW CONTENT ON HOVER
+===================================================== */
+
+.mountain-card:hover .mountain-hover-content {
+  opacity: 1;
+
+  visibility: visible;
+
+  transform: translateY(0);
+}
+
+
+/* =====================================================
+   MOUNTAIN TITLE
+===================================================== */
+
+.mountain-name {
+  position: static;
+
+  margin: 0 0 16px;
+
+  color: #ffffff;
+
+  font-family: "Oswald", sans-serif;
+
+  font-size: 34px;
+
+  font-weight: 400;
+
+  line-height: 1.15;
+
+  text-align: center;
+
+  white-space: normal;
+
+  text-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.85);
+}
+
+
+/* =====================================================
+   MOUNTAIN SUBTITLE
+===================================================== */
+
+.mountain-subtitle {
+  margin: 0 0 20px;
+
+  color: #f3e5ab;
+
+  font-family: "Oswald", sans-serif;
+
+  font-size: 16px;
+
+  font-weight: 300;
+
+  line-height: 1.3;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+
+  text-align: center;
+
+  text-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.8);
+}
+
+
+/* =====================================================
+   MOUNTAIN DESCRIPTION
+===================================================== */
+
+.mountain-description {
+  max-width: 330px;
+
+  margin: 0;
+
+  color: #ffffff;
+
+  font-family: "Roboto", sans-serif;
+
+  font-size: 14px;
+
+  font-weight: 300;
+
+  line-height: 1.6;
+
+  text-align: center;
+
+  text-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.9);
+}
+
+
+/* =====================================================
+   ARROWS
+===================================================== */
+
+.mountain-arrow {
+  position: absolute;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  z-index: 10;
+
+  width: 62px;
+
+  height: 62px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: rgba(20, 15, 12, 0.9);
+
+  color: #ffffff;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+
+.mountain-arrow svg {
+  width: 34px;
+
+  height: 34px;
+
+  stroke-width: 2;
+}
+
+
+.mountain-arrow:hover {
+  background: rgba(40, 30, 25, 0.98);
+}
+
+
+.mountain-arrow-left {
+  left: 24px;
+}
+
+
+.mountain-arrow-right {
+  right: 24px;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 1100px) {
+
+  /* VIDEO */
+
+  .video-heading h2 {
+    font-size: 48px;
+  }
+
+  .video-container {
+    max-width: calc(100% - 60px);
+  }
+
+  .theme-video {
+    height: auto;
+
+    aspect-ratio: 16 / 9;
+  }
+
+
+  /* MOUNTAIN */
+
+  .mountain-heading h2 {
+    font-size: 48px;
+  }
+
+  .mountain-card {
+    flex: 0 0 calc((100% - 76px) / 3);
+
+    height: 410px;
+  }
+
+  .mountain-name {
+    font-size: 36px;
+  }
+
+  .mountain-description {
+    max-width: 280px;
+
+    font-size: 13px;
+  }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 767px) {
+
+  /* VIDEO SECTION */
+
+  .video-section {
+    padding: 45px 0 55px;
+  }
+
+  .video-heading {
+    margin-bottom: 30px;
+  }
+
+  .video-heading h2 {
+    font-size: 34px;
+  }
+
+  .video-container {
+    width: 100%;
+
+    max-width: calc(100% - 30px);
+
+    border-radius: 12px;
+  }
+
+  .theme-video {
+    width: 100%;
+
+    height: auto;
+
+    aspect-ratio: 16 / 9;
+  }
+
+
+  /* MOUNTAIN SECTION */
+
+  .mountain-section {
+    padding: 45px 0 55px;
+  }
+
+
+  .mountain-heading {
+    margin-bottom: 35px;
+  }
+
+
+  .mountain-heading h2 {
+    font-size: 34px;
+  }
+
+
+  .mountain-slider-wrapper {
+    padding: 0 20px;
+  }
+
+
+  .mountain-slider {
+    gap: 18px;
+  }
+
+
+  .mountain-card {
+    flex: 0 0 calc(100% - 20px);
+
+    height: 400px;
+  }
+
+
+  .mountain-hover-content {
+    padding: 25px;
+  }
+
+
+  .mountain-name {
+    font-size: 32px;
+
+    margin-bottom: 14px;
+  }
+
+
+  .mountain-subtitle {
+    font-size: 14px;
+
+    margin-bottom: 17px;
+  }
+
+
+  .mountain-description {
+    max-width: 270px;
+
+    font-size: 13px;
+
+    line-height: 1.55;
+  }
+
+
+  .mountain-arrow {
+    width: 45px;
+
+    height: 45px;
+  }
+
+
+  .mountain-arrow svg {
+    width: 25px;
+
+    height: 25px;
+  }
+
+
+  .mountain-arrow-left {
+    left: 5px;
+  }
+
+
+  .mountain-arrow-right {
+    right: 5px;
+  }
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 480px) {
+
+  .video-heading h2 {
+    font-size: 32px;
+  }
+
+  .video-container {
+    max-width: calc(100% - 20px);
+
+    border-radius: 10px;
+  }
+
+  .mountain-heading h2 {
+    font-size: 32px;
+  }
+
+  .mountain-card {
+    height: 380px;
+  }
+}
+
+
+/* =====================================================
+   3D FLIPBOOK LOADER (BLACK VELVET JACKET)
+===================================================== */
+
+@keyframes fb3dBoxPulse {
+  0% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+.fb3d-loader-box {
+  position: absolute;
+  left: calc(50% - 25px);
+  top: calc(50% - 25px);
+  width: 50px;
+  height: 50px;
+  transform-origin: center;
+  overflow: hidden;
+  background: transparent;
+  transform: scale(0.7);
+}
+
+.fb3d-loader {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform: translateZ(0) scale(0.5);
+  backface-visibility: hidden;
+  transform-origin: 0 0;
+}
+
+.fb3d-loader div {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  top: 10px;
+  left: 10px;
+  background: #353535;
+  animation: fb3dBoxPulse 1s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+  animation-delay: -0.3s;
+  box-sizing: content-box;
+}
+
+.fb3d-loader div:nth-child(2) {
+  top: 10px;
+  left: 55px;
+  background: #666666;
+  animation-delay: -0.2s;
+}
+
+.fb3d-loader div:nth-child(3) {
+  top: 55px;
+  left: 10px;
+  background: #9b9b9b;
+  animation-delay: 0s;
+}
+
+.fb3d-loader div:nth-child(4) {
+  top: 55px;
+  left: 55px;
+  background: #d4d4d4;
+  animation-delay: -0.1s;
+}

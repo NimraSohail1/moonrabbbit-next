@@ -1,0 +1,156 @@
+.vehicleCard {
+  background-color: var(--color-card-bg);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--motion-normal);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.vehicleCard:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-gold);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 20px var(--color-gold-glow);
+}
+
+.expanded {
+  border-color: var(--color-gold);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.95), 0 0 25px var(--color-gold-glow);
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background-color: #0d0d0d;
+  cursor: pointer;
+}
+
+.vehicleImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.5s ease;
+}
+
+.imageContainer:hover .vehicleImage {
+  transform: scale(1.04);
+}
+
+.categoryBadge {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  font-family: var(--font-heading);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #000000;
+  background-color: var(--color-gold);
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: var(--radius-xs);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.body {
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.headerRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+.name {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.capacity {
+  font-size: 13px;
+  color: var(--color-gold);
+  font-weight: 400;
+}
+
+.toggleBtn {
+  font-family: var(--font-heading);
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: #cccccc;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 6px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all var(--motion-fast);
+  white-space: nowrap;
+}
+
+.toggleBtn:hover {
+  background: var(--color-gold);
+  color: #000000;
+  border-color: var(--color-gold);
+}
+
+.description {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #cccccc;
+  margin-bottom: var(--space-4);
+}
+
+.specsSection {
+  padding-top: var(--space-4);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  animation: fadeIn var(--motion-fast) ease-out;
+}
+
+.specsTitle {
+  font-family: var(--font-heading);
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: var(--color-gold);
+  text-transform: uppercase;
+  margin-bottom: var(--space-3);
+}
+
+.featureList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: var(--space-5);
+}
+
+.featureItem {
+  font-size: 13px;
+  color: #dddddd;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.checkIcon {
+  color: var(--color-gold);
+  font-weight: bold;
+}
+
+.bookCtaWrap {
+  margin-top: var(--space-4);
+}

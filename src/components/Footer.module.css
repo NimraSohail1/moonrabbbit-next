@@ -1,0 +1,154 @@
+.footer {
+  position: relative;
+  background-color: var(--color-surface-strong);
+  background-image: url('/assets/images/1643468.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: var(--color-text-primary);
+  padding: var(--space-7) 0 var(--space-5);
+  margin-top: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.footerBackgroundOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.88) 0%, rgba(3, 3, 3, 0.95) 100%);
+  pointer-events: none;
+}
+
+.footerContainer {
+  position: relative;
+  z-index: 2;
+  max-width: var(--max-width-container);
+  margin: 0 auto;
+  padding: 0 var(--space-5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.taglineBannerWrap {
+  margin-bottom: var(--space-5);
+  max-width: 500px;
+  width: 100%;
+}
+
+.taglineBannerImg {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.9));
+}
+
+.centerWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-6);
+  margin-bottom: var(--space-6);
+}
+
+.logoLink {
+  display: inline-block;
+  transition: transform var(--motion-normal);
+}
+
+.logoLink:hover {
+  transform: scale(1.03);
+}
+
+.footerLogo {
+  height: 90px;
+  width: auto;
+  object-fit: contain;
+}
+
+.mushroomLink {
+  display: inline-block;
+  transition: all var(--motion-normal);
+  filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.3));
+}
+
+.mushroomLink:hover {
+  transform: scale(1.1) rotate(5deg);
+  filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.6));
+}
+
+.mushroomImg {
+  height: 80px;
+  width: auto;
+  object-fit: contain;
+}
+
+.footerNav {
+  margin-bottom: var(--space-5);
+}
+
+.footerNavList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-5);
+  list-style: none;
+}
+
+.footerNavItem {
+  position: relative;
+}
+
+.footerNavLink {
+  font-family: var(--font-heading);
+  font-size: 15px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #b0b0b0;
+  transition: color var(--motion-fast);
+}
+
+.footerNavLink:hover {
+  color: var(--color-gold);
+}
+
+.bottomBar {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: var(--space-4);
+  width: 100%;
+}
+
+.copyright {
+  font-family: var(--font-heading);
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: #777777;
+  margin-bottom: 6px;
+}
+
+.subtext {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #555555;
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .centerWrap {
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+  .footerLogo {
+    height: 70px;
+  }
+  .mushroomImg {
+    height: 60px;
+  }
+  .footerNavList {
+    gap: var(--space-3);
+  }
+  .footerNavLink {
+    font-size: 13px;
+  }
+}

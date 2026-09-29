@@ -1,0 +1,109 @@
+.pageWrap {
+  background-color: #000000;
+  background-image: url('/assets/images/1643468.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px var(--space-5) 60px;
+}
+
+.pageWrap::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.96) 80%, #000000 100%);
+  pointer-events: none;
+}
+
+.contentCard {
+  position: relative;
+  z-index: 2;
+  max-width: 650px;
+  width: 100%;
+  text-align: center;
+  background: rgba(10, 10, 10, 0.85);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 50px rgba(212, 175, 55, 0.15), 0 10px 40px rgba(0, 0, 0, 0.9);
+  animation: fadeIn 0.8s ease-out;
+}
+
+.rabbitImgWrap {
+  margin-bottom: var(--space-4);
+}
+
+.rabbitImg {
+  height: 130px;
+  width: auto;
+  margin: 0 auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.3));
+  animation: pulse 3s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.06); }
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(24px, 4vw, 36px);
+  font-weight: 300;
+  letter-spacing: 3px;
+  color: #ffffff;
+  margin-bottom: var(--space-2);
+}
+
+.subtitle {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  letter-spacing: 2px;
+  color: var(--color-gold);
+  margin-bottom: var(--space-5);
+}
+
+.bannerWrap {
+  max-width: 400px;
+  margin: 0 auto var(--space-5);
+}
+
+.bannerImg {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.mushroomBadge {
+  margin-bottom: var(--space-6);
+}
+
+.mushroomImg {
+  height: 70px;
+  width: auto;
+  margin: 0 auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 15px rgba(255, 0, 0, 0.4));
+}
+
+.actionWrap {
+  display: flex;
+  gap: var(--space-4);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 600px) {
+  .contentCard {
+    padding: var(--space-4);
+  }
+  .rabbitImg {
+    height: 100px;
+  }
+}

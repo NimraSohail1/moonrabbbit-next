@@ -1,0 +1,291 @@
+.homeWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  padding-bottom: var(--space-8);
+  background-color: var(--color-surface-base);
+}
+
+/* What We Do Section */
+.whatWeDoSection {
+  position: relative;
+  padding: var(--space-8) 0;
+  background-color: var(--color-surface-base);
+}
+
+.whatWeDoCard {
+  background: linear-gradient(180deg, #121212 0%, #080808 100%);
+  border: 1px solid rgba(255, 215, 0, 0.12);
+  border-radius: var(--radius-xs);
+  padding: 48px 36px;
+  max-width: 960px;
+  margin: 0 auto;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+  position: relative;
+}
+
+.whatWeDoCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: #ffd700;
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+}
+
+.whatWeDoHeading {
+  font-family: var(--font-family-heading);
+  font-size: 34px;
+  font-weight: 300;
+  letter-spacing: 3px;
+  color: var(--color-text-primary);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.goldDivider {
+  width: 60px;
+  height: 2px;
+  background-color: var(--color-gold);
+  margin: 0 auto var(--space-5);
+  box-shadow: 0 0 10px var(--color-gold-glow);
+}
+
+.whatWeDoTextWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-bottom: var(--space-6);
+}
+
+.whatWeDoParagraph {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-md);
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.88);
+  font-weight: 300;
+  text-align: justify;
+  text-align-last: center;
+}
+
+.whatWeDoActions {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+/* Mountains Section */
+.mountainsSection {
+  position: relative;
+  padding: var(--space-8) 0;
+  background-color: var(--color-surface-base);
+}
+
+.sectionHeaderWrap {
+  text-align: center;
+  margin-bottom: var(--space-6);
+}
+
+.mountainsHeading {
+  font-family: var(--font-family-heading);
+  font-size: 36px;
+  font-weight: 300;
+  letter-spacing: 3px;
+  color: var(--color-text-primary);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.mountainsSub {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-md);
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 680px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Theme Section */
+.themeSection {
+  padding: var(--space-8) 0;
+  background-color: var(--color-surface-base);
+}
+
+.themeCard {
+  background: linear-gradient(180deg, #111111 0%, #050505 100%);
+  border: 1px solid rgba(255, 215, 0, 0.12);
+  border-radius: var(--radius-xs);
+  padding: 48px 32px;
+  max-width: 960px;
+  margin: 0 auto;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+  position: relative;
+}
+
+.themeCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: #ffd700;
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+}
+
+.themeHeading {
+  font-family: var(--font-family-heading);
+  font-size: 34px;
+  font-weight: 300;
+  letter-spacing: 3px;
+  color: var(--color-text-primary);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.videoPlayerContainer {
+  width: 100%;
+  max-width: 780px;
+  margin: 0 auto 32px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8);
+}
+
+.themeVideo {
+  width: 100%;
+  height: auto;
+  display: block;
+  background: #000000;
+}
+
+.themeBannerWrap {
+  margin: 24px auto 16px;
+  max-width: 580px;
+}
+
+.themeBannerImg {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.8));
+}
+
+.themeText {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-md);
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 720px;
+  margin: 0 auto 28px;
+  line-height: 1.7;
+}
+
+.mushroomBadgeWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mushroomThemeImg {
+  max-width: 90px;
+  height: auto;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.4));
+}
+
+.mushroomThemeImg:hover {
+  transform: scale(1.1) rotate(5deg);
+  filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.8));
+}
+
+/* Showcase Section */
+.showcaseSection {
+  padding: var(--space-6) 0;
+}
+
+.showcaseGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--space-5);
+}
+
+.showcaseCard {
+  background: linear-gradient(180deg, #141414 0%, #0a0a0a 100%);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xs);
+  padding: 30px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all var(--motion-duration-normal);
+}
+
+.showcaseCard:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-gold);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8), 0 0 15px var(--color-gold-glow);
+}
+
+.showcaseIcon {
+  font-size: 32px;
+  margin-bottom: 16px;
+}
+
+.showcaseTitle {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-lg);
+  font-weight: 300;
+  letter-spacing: 1.5px;
+  color: var(--color-text-primary);
+  margin-bottom: 10px;
+}
+
+.showcaseText {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-sm);
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.showcaseLink {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-sm);
+  letter-spacing: 1.5px;
+  color: var(--color-gold);
+  text-transform: uppercase;
+  font-weight: 400;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.showcaseLink:hover {
+  color: var(--color-gold-light);
+  gap: 10px;
+}
+
+@media (max-width: 768px) {
+  .whatWeDoCard {
+    padding: 32px 20px;
+  }
+  .whatWeDoHeading,
+  .mountainsHeading,
+  .themeHeading {
+    font-size: 26px;
+  }
+  .themeCard {
+    padding: 32px 18px;
+  }
+}

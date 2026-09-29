@@ -1,0 +1,96 @@
+.pageWrap {
+  background-color: var(--color-surface-base);
+  background-image: url('/assets/images/dariusz-sankowski-3OiYMgDKJ6k-unsplash-scaled.jpg');
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+  min-height: 100vh;
+  padding-top: var(--header-height);
+}
+
+.pageWrap::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.92);
+  pointer-events: none;
+}
+
+.headerSection {
+  position: relative;
+  z-index: 2;
+  padding: var(--space-6) 0 var(--space-4);
+  text-align: center;
+}
+
+.categoryDivider {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  margin-bottom: var(--space-6);
+}
+
+.categoryHeading {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 300;
+  letter-spacing: 2px;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.goldLine {
+  width: 50px;
+  height: 2px;
+  background-color: var(--color-gold);
+  margin: var(--space-2) auto 0;
+}
+
+.toursSection,
+.specialtySection {
+  position: relative;
+  z-index: 2;
+  padding: var(--space-6) 0 var(--space-7);
+}
+
+.toursGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6);
+}
+
+/* Custom CTA */
+.customCtaSection {
+  position: relative;
+  z-index: 2;
+  padding: var(--space-7) 0 var(--space-8);
+}
+
+.customCtaCard {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  background: rgba(15, 15, 15, 0.85);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9);
+}
+
+.customCtaText {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #cccccc;
+  margin: var(--space-4) auto var(--space-6);
+  max-width: 650px;
+}
+
+@media (max-width: 900px) {
+  .toursGrid {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+}

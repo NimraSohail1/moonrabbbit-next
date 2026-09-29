@@ -1,0 +1,161 @@
+.heroSection {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #000000;
+  padding: 100px var(--space-5) 60px;
+}
+
+.videoContainer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.videoBg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.videoOverlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.82) 85%, #000000 100%);
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.heroLogoWrap {
+  margin-bottom: var(--space-4);
+  animation: fadeIn 0.8s ease-out;
+}
+
+.heroLogoImg {
+  height: 110px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 25px rgba(0, 0, 0, 0.9));
+}
+
+.taglineImageWrap {
+  max-width: 540px;
+  width: 100%;
+  margin-bottom: var(--space-5);
+  animation: fadeIn 1s ease-out;
+}
+
+.taglineImage {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 15px rgba(0, 0, 0, 0.95));
+}
+
+.heroTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 300;
+  letter-spacing: 4px;
+  color: #ffffff;
+  margin-bottom: var(--space-4);
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9);
+}
+
+.heroSubtitle {
+  font-size: clamp(14px, 2vw, 18px);
+  font-weight: 300;
+  line-height: 1.6;
+  color: #e5e5e5;
+  max-width: 700px;
+  margin-bottom: var(--space-6);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+.ctaButtonGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  justify-content: center;
+  align-items: center;
+}
+
+.scrollDownBtn {
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  transition: color var(--motion-fast);
+}
+
+.scrollDownBtn:hover {
+  color: var(--color-gold);
+}
+
+.scrollText {
+  font-family: var(--font-heading);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.scrollArrow {
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(6px);
+  }
+  60% {
+    transform: translateY(3px);
+  }
+}
+
+@media (max-width: 768px) {
+  .heroLogoImg {
+    height: 80px;
+  }
+  .heroTitle {
+    font-size: 28px;
+    letter-spacing: 2px;
+  }
+  .heroSubtitle {
+    font-size: 14px;
+    margin-bottom: var(--space-5);
+  }
+  .ctaButtonGroup {
+    flex-direction: column;
+    width: 100%;
+    max-width: 280px;
+  }
+}

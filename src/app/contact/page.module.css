@@ -1,0 +1,94 @@
+.pageWrap {
+  background-color: var(--color-surface-base);
+  background-image: url('/assets/images/pexels-marek-piwnicki-3907296-36183772-scaled.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+  min-height: 100vh;
+  padding-top: var(--header-height);
+  padding-bottom: var(--space-8);
+}
+
+.pageWrap::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  pointer-events: none;
+}
+
+.headerSection {
+  position: relative;
+  z-index: 2;
+  padding: var(--space-6) 0 var(--space-4);
+  text-align: center;
+}
+
+.contentSection {
+  position: relative;
+  z-index: 2;
+  padding: var(--space-4) 0 var(--space-7);
+}
+
+.infoCardsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+  max-width: 900px;
+  margin: 0 auto var(--space-7);
+}
+
+.infoCard {
+  background: rgba(15, 15, 15, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+  text-align: center;
+  backdrop-filter: blur(6px);
+  transition: all var(--motion-normal);
+}
+
+.infoCard:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-gold);
+  box-shadow: 0 0 20px var(--color-gold-glow);
+}
+
+.infoIcon {
+  font-size: 28px;
+  margin-bottom: var(--space-2);
+}
+
+.infoTitle {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  letter-spacing: 1.5px;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.infoDetail {
+  font-size: 14px;
+  color: var(--color-gold);
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.infoSub {
+  font-size: 12px;
+  color: #888888;
+}
+
+.formContainer {
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .infoCardsGrid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+}
